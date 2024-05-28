@@ -1,0 +1,33 @@
+{
+    "version": "9.1.0",
+    "description": "HTTP and GraphQL client",
+    "homepage": "https://insomnia.rest",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/Kong/insomnia/releases/download/core%409.1.0/insomnia-9.1.0-full.nupkg",
+            "hash": "sha1:c23d41bf7ebba8edcfbd4d96eb081e77ec6a4f0c"
+        }
+    },
+    "extract_dir": "lib\\net45",
+    "shortcuts": [
+        [
+            "Insomnia.exe",
+            "Insomnia"
+        ]
+    ],
+    "checkver": {
+        "url": "https://api.github.com/repositories/56899284/releases",
+        "regex": "\"core@([\\d.]+)\""
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/Kong/insomnia/releases/download/core%40$version/insomnia-$version-full.nupkg"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/RELEASES"
+        }
+    }
+}

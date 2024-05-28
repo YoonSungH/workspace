@@ -1,0 +1,42 @@
+{
+    "version": "4.1.1",
+    "description": "Emulator of x86-based machines based on PCem.",
+    "homepage": "https://github.com/86Box/86Box",
+    "license": "GPL-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/86Box/86Box/releases/download/v4.1.1/86Box-Windows-64-b5634.zip",
+            "hash": "2860b40a12ed2eb25241d0c653fa108465947600d0240c7c32783163a2515cd3"
+        },
+        "32bit": {
+            "url": "https://github.com/86Box/86Box/releases/download/v4.1.1/86Box-Windows-32-b5634.zip",
+            "hash": "c97cfba2b27185dd5f97c67ba530714a66c37e05b76047b10722130b8b0896e1"
+        }
+    },
+    "suggest": {
+        "86Box Manager": "extras/86box-manager",
+        "86Box ROMs": "extras/86box-roms"
+    },
+    "bin": "86Box.exe",
+    "shortcuts": [
+        [
+            "86Box.exe",
+            "86Box"
+        ]
+    ],
+    "checkver": {
+        "url": "https://api.github.com/repositories/61964127/releases/latest",
+        "jsonpath": "$.assets[*].browser_download_url",
+        "regex": "v(?<version>[\\d.]+)/86Box-Windows-64-b(?<build>\\d+)\\.zip"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/86Box/86Box/releases/download/v$matchVersion/86Box-Windows-64-b$matchBuild.zip"
+            },
+            "32bit": {
+                "url": "https://github.com/86Box/86Box/releases/download/v$matchVersion/86Box-Windows-32-b$matchBuild.zip"
+            }
+        }
+    }
+}

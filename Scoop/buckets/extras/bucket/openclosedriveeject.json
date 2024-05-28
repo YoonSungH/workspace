@@ -1,0 +1,58 @@
+{
+    "version": "3.24",
+    "description": "Eject, open, or close any drive: USB, DVD/CD, SSD, etc.",
+    "homepage": "http://www.softwareok.com/?seite=Microsoft/OpenCloseDriveEject",
+    "license": {
+        "identifier": "Freeware",
+        "url": "http://www.softwareok.com/?seite=Microsoft/OpenCloseDriveEject/Eula"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.softwareok.com/Download/OpenCloseDriveEject_x64.zip",
+            "hash": "4f6f29c572c6fee3e87f0e779ef5feb0f86cb037388efb46f40ba150b87b1381",
+            "bin": [
+                [
+                    "OpenCloseDriveEject_x64.exe",
+                    "OpenCloseDriveEject"
+                ]
+            ],
+            "shortcuts": [
+                [
+                    "OpenCloseDriveEject_x64.exe",
+                    "OpenCloseDriveEject"
+                ]
+            ]
+        },
+        "32bit": {
+            "url": "https://www.softwareok.com/Download/OpenCloseDriveEject.zip",
+            "hash": "2a46fb9443619c8620fc18c0b6260708efa733902218826369f81ec0ba86bd47",
+            "bin": "OpenCloseDriveEject.exe",
+            "shortcuts": [
+                [
+                    "OpenCloseDriveEject.exe",
+                    "OpenCloseDriveEject"
+                ]
+            ]
+        }
+    },
+    "pre_install": "if (-not (Test-Path \"$persist_dir\\OpenCloseDriveEject.ini\")) { New-Item \"$dir\\OpenCloseDriveEject.ini\" | Out-Null }",
+    "persist": "OpenCloseDriveEject.ini",
+    "checkver": {
+        "url": "https://www.softwareok.com/?seite=Microsoft/OpenCloseDriveEject/History",
+        "regex": "version ([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.softwareok.com/Download/OpenCloseDriveEject_x64.zip"
+            },
+            "32bit": {
+                "url": "https://www.softwareok.com/Download/OpenCloseDriveEject.zip"
+            }
+        },
+        "hash": {
+            "url": "https://www.softwareok.com/?Download=OpenCloseDriveEject",
+            "regex": "$basename.*?$sha256<"
+        }
+    }
+}

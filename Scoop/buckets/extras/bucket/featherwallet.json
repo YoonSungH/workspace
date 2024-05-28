@@ -1,0 +1,40 @@
+{
+    "version": "2.6.7",
+    "description": "A Monero SPV Wallet",
+    "homepage": "https://featherwallet.org/",
+    "license": {
+        "identifier": "BSD-3-Clause",
+        "url": "https://git.featherwallet.org/feather/feather/raw/branch/master/LICENSE"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://featherwallet.org/files/releases/win/feather-2.6.7-win.zip",
+            "hash": "d2f5084b19f1174912d8cd8b6c00d1f02c5cb3a15f959fea0c97daea2f3af0aa"
+        }
+    },
+    "pre_install": [
+        "Rename-Item \"$dir\\feather-$version.exe\" \"$dir\\feather.exe\"",
+        "New-Item \"$dir\\.portable\" -Force | Out-Null",
+        "if (!(Test-Path \"$persist_dir\\feather_data\")) {",
+        "   ensure \"$dir\\feather_data\" | Out-Null",
+        "}"
+    ],
+    "shortcuts": [
+        [
+            "feather.exe",
+            "Feather Wallet"
+        ]
+    ],
+    "persist": "feather_data",
+    "checkver": "The latest version is <code>([\\d.]+)</code>",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://featherwallet.org/files/releases/win/feather-$version-win.zip"
+            }
+        },
+        "hash": {
+            "url": "https://featherwallet.org/files/releases/hashes-$version.txt"
+        }
+    }
+}

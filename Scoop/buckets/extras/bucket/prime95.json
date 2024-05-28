@@ -1,0 +1,45 @@
+{
+    "version": "30.19b14",
+    "description": "Free Mersenne Prime Search Software",
+    "homepage": "https://www.mersenne.org/download/",
+    "license": {
+        "identifier": "Freeware",
+        "url": "https://www.mersenne.org/legal/#EULA"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.mersenne.org/download/software/v30/30.19/p95v3019b14.win64.zip",
+            "hash": "8012cf0a610f3660aa04a4838c275b4f28b3f373708362c04136e35c5ae885bf"
+        },
+        "32bit": {
+            "url": "https://www.mersenne.org/download/software/v30/30.1932/p95v3019b14.win32.zip",
+            "hash": "8e471649a5c2d33a69835db0aaac2ab2821f96b2318f1b522007e639571d50cf"
+        }
+    },
+    "bin": "prime95.exe",
+    "shortcuts": [
+        [
+            "prime95.exe",
+            "Prime95"
+        ]
+    ],
+    "checkver": "Windows:\\s+64-bit\\D+([\\w.]+).*?href=\"https:?[\\w./]+?/software/v([\\d]+)/(?<verpath>[\\d.]+)/(?<file64>[^.]+).win64.zip\".*Windows:\\s+32-bit\\D+(?<version32>[\\w.]+).*?href=\"https:?[\\w./]+?/software/v([\\d]+)/(?<verpath32>[\\d.]+)/(?<file32>[^.]+).win32.zip",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.mersenne.org/download/software/v$majorVersion/$matchVerpath/$matchFile64.win64.zip",
+                "hash": {
+                    "url": "https://www.mersenne.org/download/",
+                    "regex": "\\.win64\\.zip.*?SHA256:.*?$sha256"
+                }
+            },
+            "32bit": {
+                "url": "https://www.mersenne.org/download/software/v$majorVersion/$matchVerpath32/$matchFile32.win32.zip",
+                "hash": {
+                    "url": "https://www.mersenne.org/download/",
+                    "regex": "\\.win32\\.zip.*?SHA256:.*?$sha256"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,42 @@
+{
+    "version": "24.1",
+    "description": "Real time realistic skies generator",
+    "homepage": "https://stellarium.org",
+    "license": "GPL-2.0-only",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/Stellarium/stellarium/releases/download/v24.1/stellarium-24.1-qt6-win64.exe",
+            "hash": "d9db848d9d11597c2a916f0ababf5c489103714834706ab1c79f1b374c954cb2"
+        },
+        "32bit": {
+            "url": "https://github.com/Stellarium/stellarium/releases/download/v24.1/stellarium-24.1-qt5-win32.exe",
+            "hash": "f7ac6b28070a8dc7e9b319cabc0cbdfb573aa502a0d6a3c59ad3c6ac148f4675"
+        }
+    },
+    "innosetup": true,
+    "bin": "stellarium.exe",
+    "shortcuts": [
+        [
+            "stellarium.exe",
+            "Stellarium"
+        ]
+    ],
+    "checkver": {
+        "url": "https://github.com/Stellarium/stellarium/releases",
+        "regex": "(?sm)stellarium-(?<long>[\\d\\.]+)\\.tar\\.gz</.*?Stellarium (?<version>[\\d\\.]+) for"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/Stellarium/stellarium/releases/download/v$version/stellarium-$matchLong-qt6-win64.exe"
+            },
+            "32bit": {
+                "url": "https://github.com/Stellarium/stellarium/releases/download/v$version/stellarium-$matchLong-qt5-win32.exe"
+            }
+        },
+        "hash": {
+            "url": "https://github.com/Stellarium/stellarium/releases/tag/v$version",
+            "regex": "(?sm)$basename</.*?SHA256</strong>:\\s+$sha256"
+        }
+    }
+}

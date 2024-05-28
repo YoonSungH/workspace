@@ -1,0 +1,27 @@
+{
+    "version": "1.54.2",
+    "homepage": "https://github.com/lay295/TwitchDownloader",
+    "description": "A Twitch VOD/Clip/Chat Downloader and Chat Renderer.",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/lay295/TwitchDownloader/releases/download/1.54.2/TwitchDownloaderGUI-1.54.2-Windows-x64.zip",
+            "hash": "298e82963c3f740e10052bc9ae48f5d82db1c83e7bdd9f785d25fb3516498ad2"
+        }
+    },
+    "shortcuts": [
+        [
+            "TwitchDownloaderWPF.exe",
+            "TwitchDownloader"
+        ]
+    ],
+    "persist": "Themes",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/lay295/TwitchDownloader/releases/download/$version/TwitchDownloaderGUI-$version-Windows-x64.zip"
+            }
+        }
+    }
+}
