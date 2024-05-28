@@ -1,0 +1,24 @@
+{
+    "version": "0.20.4",
+    "description": "SQL-only webapp builder, empowering data analysts to build websites and applications quickly",
+    "homepage": "https://sql.ophir.dev",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/lovasoa/SQLpage/releases/download/v0.20.4/sqlpage-windows.zip",
+            "hash": "71ca5f05ae20d3639537433736d5c171743cabcc07b2184fe8f656ddec8da954"
+        }
+    },
+    "bin": "sqlpage.exe",
+    "persist": "sqlpage",
+    "checkver": {
+        "github": "https://github.com/lovasoa/SQLpage"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/lovasoa/SQLpage/releases/download/v$version/sqlpage-windows.zip"
+            }
+        }
+    }
+}

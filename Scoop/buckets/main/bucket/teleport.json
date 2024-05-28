@@ -1,0 +1,27 @@
+{
+    "version": "15.3.0",
+    "description": "Privileged access management for cloud-native infrastructure",
+    "homepage": "https://goteleport.com",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://cdn.teleport.dev/teleport-v15.3.0-windows-amd64-bin.zip",
+            "hash": "130f222aaae0f2bc205c70e011d510deb8ab7ab0e1372cc1f09ccaacf6d766c3"
+        }
+    },
+    "bin": "tsh.exe",
+    "checkver": {
+        "url": "https://goteleport.com/docs/installation/",
+        "regex": "TELEPORT_VERSION.*?([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://cdn.teleport.dev/teleport-v$version-windows-amd64-bin.zip"
+            }
+        },
+        "hash": {
+            "url": "$url.sha256"
+        }
+    }
+}

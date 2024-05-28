@@ -1,0 +1,27 @@
+{
+    "version": "1.30.0",
+    "description": "Kubernetes node provisioning tool",
+    "homepage": "https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm/",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://dl.k8s.io/v1.30.0/bin/windows/amd64/kubeadm.exe",
+            "hash": "111f7f43cbc43f48bcf99f920d23e51baf8976044f06b195ed0f1e55afbfc7e7"
+        }
+    },
+    "bin": "kubeadm.exe",
+    "checkver": {
+        "url": "https://storage.googleapis.com/kubernetes-release/release/stable.txt",
+        "regex": "v([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://dl.k8s.io/v$version/bin/windows/amd64/kubeadm.exe"
+            }
+        },
+        "hash": {
+            "url": "$url.sha1"
+        }
+    }
+}

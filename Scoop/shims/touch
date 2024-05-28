@@ -1,0 +1,7 @@
+#!/bin/sh
+# C:\workspace\Scoop\apps\touch\current\touch.ps1
+if command -v pwsh.exe > /dev/null 2>&1; then
+    pwsh.exe -noprofile -ex unrestricted -file "C:\workspace\Scoop\apps\touch\current\touch.ps1"  "$@"
+else
+    powershell.exe -noprofile -ex unrestricted -file "C:\workspace\Scoop\apps\touch\current\touch.ps1"  "$@"
+fi

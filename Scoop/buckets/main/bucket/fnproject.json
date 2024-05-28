@@ -1,0 +1,23 @@
+{
+    "version": "0.6.32",
+    "description": "A container-native serverless platform that can be run anywhere (any cloud or on-premise).",
+    "homepage": "https://fnproject.io/",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/fnproject/cli/releases/download/0.6.32/fn.exe",
+            "hash": "872ad08aef4a2bcb847e9c70af2b11ac0695f3c0fe79ea068ba5ff20eca8c0d8"
+        }
+    },
+    "bin": "fn.exe",
+    "checkver": {
+        "github": "https://github.com/fnproject/cli"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/fnproject/cli/releases/download/$version/fn.exe"
+            }
+        }
+    }
+}

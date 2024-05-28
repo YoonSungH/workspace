@@ -1,0 +1,21 @@
+{
+    "version": "0.17.0",
+    "description": "A Git-compatible DVCS that is both simple and powerful",
+    "homepage": "https://github.com/martinvonz/jj",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/martinvonz/jj/releases/download/v0.17.0/jj-v0.17.0-x86_64-pc-windows-msvc.zip",
+            "hash": "2d38c0925ab5ef1abfe271c009de2f48bd61d58dc531ff215d94ea65dd1cbadc"
+        }
+    },
+    "bin": "jj.exe",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/martinvonz/jj/releases/download/v$version/jj-v$version-x86_64-pc-windows-msvc.zip"
+            }
+        }
+    }
+}

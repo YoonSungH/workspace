@@ -1,0 +1,78 @@
+{
+    "version": "1.19.3",
+    "description": "A validating, recursive, caching DNS resolver",
+    "homepage": "https://nlnetlabs.nl/projects/unbound/about/",
+    "license": "BSD-3-Clause",
+    "suggest": {
+        "openssl": [
+            "openssl",
+            "openssl-mingw",
+            "versions/openssl10",
+            "versions/openssl-light",
+            "versions/openssl10-light"
+        ],
+        "wget": "wget"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://nlnetlabs.nl/downloads/unbound/unbound_setup_1.19.3.exe#/dl.7z",
+            "hash": "6e0d5978c8163358062c4e971c059b75efa42060eb3f53a4d0817b22045a6fb6"
+        },
+        "32bit": {
+            "url": "https://nlnetlabs.nl/downloads/unbound/unbound_setup_1.19.3-w32.exe#/dl.7z",
+            "hash": "78636989b541a50ce172ca4409ca79c4abacc11d0b4e6524bb92a798d4203edb"
+        }
+    },
+    "pre_install": [
+        "$content = Get-Content \"$dir\\unbound-control-setup.cmd\"",
+        "$content = $content -replace 'C:\\\\Program Files( \\(x86\\))?', (Convert-Path \"$dir\\..\")",
+        "$content = $content -replace '%prefix%\\\\Unbound', '%prefix%\\current'",
+        "Set-Content \"$dir\\unbound-control-setup.cmd\" $content -Encoding Ascii",
+        "Remove-Item \"$dir\\`$PLUGINSDIR\", \"$dir\\uninst.exe\" -Recurse"
+    ],
+    "bin": [
+        [
+            "unbound.exe",
+            "unbound",
+            "-c \"$dir\\service.conf\""
+        ],
+        [
+            "unbound-anchor.exe",
+            "unbound-anchor",
+            "-a \"$dir\\root.key\""
+        ],
+        [
+            "unbound-checkconf.exe",
+            "unbound-checkconf",
+            "\"$dir\\service.conf\""
+        ],
+        [
+            "unbound-control.exe",
+            "unbound-control",
+            "-c \"$dir\\service.conf\""
+        ],
+        "unbound-control-setup.cmd",
+        "unbound-host.exe"
+    ],
+    "persist": [
+        "service.conf",
+        "root.key"
+    ],
+    "checkver": {
+        "url": "https://nlnetlabs.nl/projects/unbound/download/",
+        "regex": "Unbound ([\\d.]+) \\(Current version\\)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://nlnetlabs.nl/downloads/unbound/unbound_setup_$version.exe#/dl.7z"
+            },
+            "32bit": {
+                "url": "https://nlnetlabs.nl/downloads/unbound/unbound_setup_$version-w32.exe#/dl.7z"
+            }
+        },
+        "hash": {
+            "url": "$url.sha256"
+        }
+    }
+}
